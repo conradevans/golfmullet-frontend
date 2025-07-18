@@ -61,7 +61,7 @@ const SecondImagesHome = () => {
       >
         <Link to="browse">
           <img
-            src="/images/ManGolfing.jpg"
+            src="/images/mangolfing.jpg"
             alt="Second"
             style={{
               width: "100%",
