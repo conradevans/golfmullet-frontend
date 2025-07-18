@@ -37,7 +37,7 @@ const Header = ({ isLoggedIn, setIsLoggedIn }) => {
       }}
     >
       <img
-        src="/images/golfmullet icon.jpg"
+        src="/images/golfmullet-icon.jpg"
         alt="Golf Mullet Icon"
         onClick={() => navigate("/")}
         style={{
