@@ -60,6 +60,7 @@ function App() {
   }, []);
 
   const logoutUser = () => {
+    console.log("userlogged out");
     localStorage.removeItem("token");
     localStorage.removeItem("userId");
     localStorage.setItem("loggedIn", "false");
