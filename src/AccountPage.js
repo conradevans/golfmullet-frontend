@@ -1,21 +1,13 @@
 import { useNavigate } from "react-router-dom";
 
-const AccountPage = ({ setIsLoggedIn }) => {
+const AccountPage = ({ setIsLoggedIn, logoutUser }) => {
   const navigate = useNavigate();
-
-  const handleLogout = () => {
-    localStorage.setItem("loggedIn", "false");
-    localStorage.removeItem("token");
-    localStorage.removeItem("userId");
-    setIsLoggedIn(false);
-    navigate("/signin");
-  };
 
   return (
     <div style={{ textAlign: "center", marginTop: "40px" }}>
       <h1>Account Page</h1>
       <button
-        onClick={handleLogout}
+        onClick={logoutUser}
         style={{
           marginTop: "20px",
           padding: "10px 20px",
