@@ -6,6 +6,7 @@ const SignIn = ({ setIsLoggedIn }) => {
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
 
+  
   const handleLogout = () => {
     localStorage.setItem("loggedIn", "false");
     setIsLoggedIn(false);
