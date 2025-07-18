@@ -5,7 +5,7 @@ const Cart = ({ cart, setCart }) => {
   const checkout = async () => {
     try {
       const response = await fetch(
-        `http://localhost:5050/api/users/cart/${userId}/clear`,
+        `https://golfmullet-backend.onrender.com/api/users/cart/${userId}/clear`,
         {
           method: "DELETE",
           headers: {
@@ -34,29 +34,35 @@ const Cart = ({ cart, setCart }) => {
 
     setCart(updated);
 
-    await fetch(`http://localhost:5050/api/users/cart/${userId}`, {
-      method: "PUT",
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: `Bearer ${token}`,
-      },
-      body: JSON.stringify({
-        itemId: updated[index]._id,
-        size: updated[index].size,
-        quantity: updated[index].quantity,
-      }),
-    });
+    await fetch(
+      `https://golfmullet-backend.onrender.com/api/users/cart/${userId}`,
+      {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`,
+        },
+        body: JSON.stringify({
+          itemId: updated[index]._id,
+          size: updated[index].size,
+          quantity: updated[index].quantity,
+        }),
+      }
+    );
   };
 
   const removeItem = async (itemId, size) => {
-    await fetch(`http://localhost:5050/api/users/cart/${userId}`, {
-      method: "DELETE",
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: `Bearer ${token}`,
-      },
-      body: JSON.stringify({ itemId, size }),
-    });
+    await fetch(
+      `https://golfmullet-backend.onrender.com/api/users/cart/${userId}`,
+      {
+        method: "DELETE",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`,
+        },
+        body: JSON.stringify({ itemId, size }),
+      }
+    );
 
     setCart(
       cart.filter((item) => !(item._id === itemId && item.size === size))
