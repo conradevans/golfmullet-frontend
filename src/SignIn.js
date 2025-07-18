@@ -22,7 +22,6 @@ const SignIn = ({ setIsLoggedIn }) => {
 
       const data = await res.json();
       if (res.ok) {
-        alert("Login successful!");
         localStorage.setItem("loggedIn", "true");
         localStorage.setItem("userId", data.userId);
         localStorage.setItem("token", data.token);
@@ -47,7 +46,6 @@ const SignIn = ({ setIsLoggedIn }) => {
 
       const data = await res.json();
       if (res.ok) {
-        alert("Registration successful! You can now log in.");
         handleLogin();
       } else {
         alert(data.message || "Registration failed");
