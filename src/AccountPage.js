@@ -5,6 +5,8 @@ const AccountPage = ({ setIsLoggedIn }) => {
 
   const handleLogout = () => {
     localStorage.setItem("loggedIn", "false");
+    localStorage.removeItem("token");
+    localStorage.removeItem("userId");
     setIsLoggedIn(false);
     navigate("/signin");
   };
