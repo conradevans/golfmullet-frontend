@@ -23,18 +23,21 @@ const ItemPage = ({ clothes, setCart, setFavorites, favorites }) => {
     if (!userId) return alert("Please sign in first");
 
     try {
-      const res = await fetch("http://localhost:5050/api/users/cart", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Bearer ${token}`,
-        },
-        body: JSON.stringify({
-          userId,
-          product: item,
-          size: selectedSize,
-        }),
-      });
+      const res = await fetch(
+        "https://golfmullet-backend.onrender.com/api/users/cart",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${token}`,
+          },
+          body: JSON.stringify({
+            userId,
+            product: item,
+            size: selectedSize,
+          }),
+        }
+      );
 
       if (!res.ok) throw new Error("Failed to add to cart");
 
@@ -51,17 +54,20 @@ const ItemPage = ({ clothes, setCart, setFavorites, favorites }) => {
     if (!userId) return alert("Please sign in first");
 
     try {
-      const res = await fetch("http://localhost:5050/api/users/favorites", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Bearer ${token}`,
-        },
-        body: JSON.stringify({
-          userId,
-          product: item,
-        }),
-      });
+      const res = await fetch(
+        "https://golfmullet-backend.onrender.com/api/users/favorites",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${token}`,
+          },
+          body: JSON.stringify({
+            userId,
+            product: item,
+          }),
+        }
+      );
 
       if (!res.ok) throw new Error("Failed to update favorites");
 
