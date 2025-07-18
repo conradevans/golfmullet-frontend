@@ -14,14 +14,18 @@ const SignIn = ({ setIsLoggedIn }) => {
 
   const handleLogin = async () => {
     try {
-      const res = await fetch("http://localhost:5050/api/auth/login", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ email, password }),
-      });
+      const res = await fetch(
+        "https://golfmullet-backend.onrender.com/api/auth/login",
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ email, password }),
+        }
+      );
 
       const data = await res.json();
       if (res.ok) {
+        alert("Login successful!");
         localStorage.setItem("loggedIn", "true");
         localStorage.setItem("userId", data.userId);
         localStorage.setItem("token", data.token);
@@ -38,14 +42,18 @@ const SignIn = ({ setIsLoggedIn }) => {
 
   const handleRegister = async () => {
     try {
-      const res = await fetch("http://localhost:5050/api/auth/register", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ email, password }),
-      });
+      const res = await fetch(
+        "https://golfmullet-backend.onrender.com/api/auth/register",
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ email, password }),
+        }
+      );
 
       const data = await res.json();
       if (res.ok) {
+        alert("Registration successful! You can now log in.");
         handleLogin();
       } else {
         alert(data.message || "Registration failed");
