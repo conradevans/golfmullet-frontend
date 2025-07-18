@@ -6,7 +6,7 @@ const Favorites = ({ favorites, setFavorites }) => {
 
   const removeFavorite = async (id) => {
     const res = await fetch(
-      `http://localhost:5050/api/users/${userId}/favorites/${id}`,
+      `https://golfmullet-backend.onrender.com/api/users/${userId}/favorites/${id}`,
       {
         method: "DELETE",
         headers: {
