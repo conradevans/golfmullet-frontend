@@ -36,7 +36,6 @@ function App() {
     const checkTokenExpiration = () => {
       const token = localStorage.getItem("token");
       if (!token) {
-        logoutUser();
         return;
       }
 
