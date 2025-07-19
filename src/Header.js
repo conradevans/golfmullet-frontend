@@ -20,8 +20,10 @@ const Header = ({ isLoggedIn, setIsLoggedIn }) => {
 
   const handleUserClick = () => {
     if (isLoggedIn) {
+      console.log("account")
       navigate("/account");
     } else {
+      console.log("signin")
       navigate("/signin");
     }
   };
