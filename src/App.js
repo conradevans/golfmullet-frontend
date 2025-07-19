@@ -152,7 +152,7 @@ function App() {
         />
         <Route
           path="/account"
-          element={<AccountPage setIsLoggedIn={setIsLoggedIn} />}
+          element={<AccountPage setIsLoggedIn={setIsLoggedIn} logoutUser={logoutUser} />}
         />
         <Route path="/browse" element={<Browse clothes={clothes} />} />
         <Route
