@@ -7,7 +7,7 @@ const AccountPage = ({ setIsLoggedIn, logoutUser }) => {
     <div style={{ textAlign: "center", marginTop: "40px" }}>
       <h1>Account Page</h1>
       <button
-        onClick={() => console.log("Button clicked")}
+        onClick={logoutUser}
         style={{
           marginTop: "20px",
           padding: "10px 20px",
